@@ -1,6 +1,17 @@
 {
+  "name": "tp-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "devDependencies": {
-    "@swc/cli": "^0.7.9",
-    "@swc/core": "^1.15.3"
+    "nodemon": "^3.1.11"
   }
 }

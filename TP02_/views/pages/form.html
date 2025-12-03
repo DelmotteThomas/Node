@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a file</title>
+</head>
+<body>
+    
+    <h1>Create a file</h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/files">Files</a></li>
+        <li><a href="/form">Create a file</a></li>
+    </ul>
+
+    <form action="/form" method="POST">
+        <div><label for="filename">File name:</label>
+        <input type="text" id="filename" name="filename" required>
+        
+        
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="10" cols="30" required></textarea>
+        <br>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

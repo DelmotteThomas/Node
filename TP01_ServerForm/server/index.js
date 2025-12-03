@@ -79,7 +79,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(405, { "Content-Type": "text/plain; charset=utf-8" });
         return res.end("Méthode non autorisée");
       }
-      console.log(">>> ROUTE /submit détectée");
+      //console.log(" ROUTE /submit détectée");
       // déclaration de la variable body pour accumuler les données reçues
       let body = "";
       // Accumuler les données reçues par morceaux chunk
@@ -89,7 +89,7 @@ const server = http.createServer((req, res) => {
       // Une fois toutes les données reçues, les traiter
 
       req.on("end", () => {
-        console.log("BODY REÇU =", body);
+       // console.log("BODY REÇU =", body);
 
         const params = new URLSearchParams(body);
         const fileName = params.get("filename");
@@ -100,10 +100,10 @@ const server = http.createServer((req, res) => {
         }
         // Construire le bon chemin vers /files/<filename>
         const filePath = path.join(__dirname, "..", "files", fileName);
-        console.log(">>> CHEMIN FICHIER =", filePath);
+        //console.log("CHEMIN FICHIER =", filePath);
         // Écrire le message dans le fichier
         fs.writeFileSync(filePath, message, "utf8");
-        
+        // Rediriger l'utilisateur vers la page d'accueil
         res.writeHead(302, { Location: "/" });
         
         return res.end();
@@ -111,7 +111,7 @@ const server = http.createServer((req, res) => {
       return;
 
     default:
-      res.writeHead(404);
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
       return res.end("Page inexistante");
   }
 });
